@@ -1,22 +1,24 @@
 .app-container-grid {
-      display: grid;
-      grid-template-rows: 1fr 7fr 1fr;
-      height: 100vh;
-    }
-    
-    /*.main-header,
+  display: grid;
+  grid-template-rows: 1fr 7fr 1fr;
+  height: 100vh;
+}
+
+
+
+/*.main-header,
     .main-footer {
       background-color: #9d9b9b;
       display: grid;
       grid-template-columns: 1fr 6fr 2fr;
     }*/
-    
-    /*.main-container-grid {
+
+/*.main-container-grid {
       display: grid;
       grid-template-columns: 1fr 6fr 2fr;
     }*/
-    
-    /*.align-center {
+
+/*.align-center {
       margin: 15px;
       border: 1px dashed #CCC;
     }*/

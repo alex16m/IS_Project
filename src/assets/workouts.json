@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Alex",
+    "weight": 165,
+    "bench": 100,
+    "squat": 150,
+    "deadlift": 150
+  },
+  {
+    "name": "Anthony",
+    "weight": 155,
+    "bench": 100,
+    "squat": 150,
+    "deadlift": 150
+  },
+  {
+    "name": "Jason",
+    "weight": 140,
+    "bench": 100,
+    "squat": 150,
+    "deadlift": 150
+  }
+]

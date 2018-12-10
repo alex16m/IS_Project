@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
       margin: 0px;
       padding: 0px;
@@ -10,8 +11,23 @@
       background-color: #e6e2e2;
     }
 
-
-      .align-center {
+    .align-center {
       margin: 15px;
-      border: 1px dashed #CCC;
+    }   
+    
+    .nav-button {
+      margin-right: 8px !important;
+      
     }
+
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+      color: rgba(44, 31, 162, 0.7);
+  }
+  div.example-element-diagram{
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 100% !important;
+}

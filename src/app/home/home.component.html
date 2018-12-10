@@ -1,0 +1,30 @@
+<div>
+  <form class="input-form">
+    <mat-form-field class="input-full-width">
+      <input [(ngModel)]='name' aria-label="Name" matInput placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input [(ngModel)]='weight' matInput placeholder="Weight (lbs)" />
+    </mat-form-field>
+
+    <table class="input-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="input-full-width">
+            <input [(ngModel)]='maxBench' matInput placeholder="Max Bench (lbs)" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="input-full-width">
+            <input [(ngModel)]='maxSquat' matInput placeholder="Max Squat (lbs)" />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <button mat-raised-button color="primary" (click)="goToPage('workout')">
+          Generate Workout
+        </button>
+      </tr>
+    </table>
+  </form>
+</div>

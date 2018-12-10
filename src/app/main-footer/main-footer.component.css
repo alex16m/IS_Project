@@ -1,6 +1,10 @@
 .main-footer {
-      background-color: #9d9b9b;
-      display: grid;
-      grid-template-columns: 1fr 6fr 2fr;
-      height: 100%;
-    }
+  background-color: #9d9b9b;
+  display: grid;
+  grid-template-columns: 1fr 6fr 2fr;
+  height: 100%;
+}
+
+.float-right {
+  float: right;
+}

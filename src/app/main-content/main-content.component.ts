@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface IStudent {
-  id?: number;
-  firstName: string;
-  lastName: string;
-  course: string;
-}
+import {Router } from '@angular/router';
 
 @Component({
   selector: 'main-content',
@@ -14,48 +8,15 @@ interface IStudent {
 })
 export class MainContentComponent implements OnInit {
 
+  constructor(private router: Router){
 
-  students: Array<IStudent> = [];
-
-  constructor() {
-    this.students[0] = {
-      id: 1,
-      firstName: 'Lucas',
-      lastName: 'Phan',
-      course: 'Programming'
-    }
-    this.students[1] = {
-      id: 1,
-      firstName: 'Tom',
-      lastName: 'Brady',
-      course: 'Swimming'
-    }
-    this.students[2] = {
-      id: 1,
-      firstName: 'Mark',
-      lastName: 'Zuc',
-      course: 'Business'
-    }
-    this.students[3] = {
-      id: 1,
-      firstName: 'Joe',
-      lastName: 'Biden',
-      course: 'Politics'
-    }
   }
 
   ngOnInit() {
   }
 
-  addStudent() {
-    const student: IStudent = {
-      id: 1,
-      firstName: 'Mike',
-      lastName: 'Tyson',
-      course: 'Boxing'
-    };
-
-    this.students.push(student);
+  goToPage(path: string) {
+    this.router.navigate([path]);
   }
 
 }

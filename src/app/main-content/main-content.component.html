@@ -1,25 +1,6 @@
 <div class="main-container-grid">
-  <div class="align-center">r2c1</div>
-  <div class="align-center">
-    <button (click)="addStudent()" class="add-button">Add Student</button>
-    <table class="table-one">
-      <thead>
-        <tr>
-          <td>ID:</td>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Courses</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{student.id}}</td>
-          <td>{{student.firstName}}</td>
-          <td>{{student.lastName}}</td>
-          <td>{{student.course}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="align-center">r2c3</div>
+  <div></div>
+  <div>
+        <router-outlet class="router-outlet"></router-outlet></div>
+        
 </div>
