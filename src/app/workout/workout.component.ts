@@ -85,13 +85,10 @@ export class WorkoutComponent implements OnInit {
   generateWorkout() {
     for (let i = 0; i < this.workouts.length; i++) {
       let workout = this.workouts[i];
-      workout.benchWorkout = workout.maxBench * .8;
-      workout.squatWorkout = workout.maxSquat * .7;
-      workout.deadliftWorkout = workout.maxDeadlift * .7;
-      workout.abWorkout = Math.floor(Math.random() * (workout.weight + 1));
-      workout.benchWorkout.toFixed()
-      workout.deadliftWorkout.toFixed();
-      workout.squatWorkout.toFixed();
+      workout.benchWorkout = Math.floor(workout.maxBench * .8);
+      workout.squatWorkout = Math.floor(workout.maxSquat * .7);
+      workout.deadliftWorkout = Math.floor(workout.maxDeadlift * .7);
+      workout.abWorkout = Math.floor(Math.random() * (workout.weight + 1)+1);
     }
     return this.workouts
   }

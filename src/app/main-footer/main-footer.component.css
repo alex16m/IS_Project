@@ -8,3 +8,7 @@
 .float-right {
   float: right;
 }
+
+span {
+  font-size: 10px;
+}

@@ -8,6 +8,7 @@
     matColumnDef="{{workout}}"
     *ngFor="let workout of workoutsToDisplay"
   >
+    <!-- Where the name of the workout are -->
     <th mat-header-cell *matHeaderCellDef>{{ workout }}</th>
     <td mat-cell *matCellDef="let element">{{ element[workout] }}</td>
   </ng-container>
