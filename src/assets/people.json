@@ -1,6 +1,7 @@
 [
   {
     "firstName":    "Alex",
+    "lastName":    "Moun",
     "weight":       155,
     "maxBench":     160,
     "maxSquat":     200,
@@ -8,6 +9,7 @@
   },
   {
     "firstName":    "Anthony",
+    "lastName":    "Ortega",
     "weight":       150,
     "maxBench":     145,
     "maxSquat":     315,
@@ -15,6 +17,7 @@
   },
   {
     "firstName":    "Carlos",
+    "lastName":    "Siao",
     "weight":       160,
     "maxBench":     200,
     "maxSquat":     345,

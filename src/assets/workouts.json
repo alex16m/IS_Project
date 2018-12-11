@@ -1,20 +1,20 @@
 [
   {
-    "name": "Alex",
+    "firstName": "Alex",
     "weight": 165,
     "bench": 100,
     "squat": 150,
     "deadlift": 150
   },
   {
-    "name": "Anthony",
+    "firstName": "Anthony",
     "weight": 155,
     "bench": 100,
     "squat": 150,
     "deadlift": 150
   },
   {
-    "name": "Jason",
+    "firstName": "Jason",
     "weight": 140,
     "bench": 100,
     "squat": 150,

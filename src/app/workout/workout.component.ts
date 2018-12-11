@@ -23,19 +23,18 @@ interface IWorkout {
 }
 
 export interface IPerson {
-  firstName:    string;
-  weight:       number;
-  maxBench:     number;
-  maxSquat:     number;
-  maxDeadlift:  number;
+  firstName: string;
+  lastName: string;
+  weight: number;
+  maxBench: number;
+  maxSquat: number;
+  maxDeadlift: number;
+  benchWorkout?: number;
+  squatWorkout?: number;
+  deadliftWorkout?: number;
 }
 
-let WORKOUT_DATA: IWorkout[] = [
-  { name: "Alex", weight: 165, bench: 100, squat: 150, deadlift: 150, description: "hello"},
-  { name: "Anthony", weight: 155, bench: 100, squat: 150, deadlift: 150, description: "hello"},
-  { name: "Jason", weight: 140, bench: 100, squat: 150, deadlift: 150, description: "hello"}
-];
-
+let WORKOUT_DATA: IPerson[] = [];
 
 @Component({
   selector: "app-workout",
@@ -56,68 +55,42 @@ let WORKOUT_DATA: IWorkout[] = [
   ]
 })
 export class WorkoutComponent implements OnInit {
-
   people: Array<IPerson> = [];
   //workouts: Array<IWorkout>;
-  workouts = WORKOUT_DATA;
-  workoutsToDisplay = ['firstName', 'weight', 'bench', 'squat', 'deadlift'];
+  workouts: Array<IPerson> = [];
+  workoutsToDisplay = [
+    "firstName",
+    "weight",
+    "maxBench",
+    "maxSquat",
+    "maxDeadlift"
+  ];
   expandedWorkout: IPerson | null;
   data: object = {};
-
 
   constructor(
     private http: Http,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router
+  ) {}
 
-  ) {
-
-    (this.workouts[0] = {
-      name: "Alex",
-      weight: 155,
-      bench: 155,
-      squat: 200,
-      deadlift: 200,
-      description: "hello"
-    }),
-      (this.workouts[1] = {
-        name: "Tran",
-        weight: 155,
-        bench: 155,
-        squat: 200,
-        deadlift: 200,
-        description: "hello"
-      });
-  }
-
-  async ngOnInit() {
-    const savedPeople = JSON.parse(localStorage.getItem("people"));
-      this.people = await this.loadTestFromFile();
-
-      console.log(this.people)
-
-    this.activatedRoute.params.subscribe((data) => {
-      this.data = data;
-    })
-
+  ngOnInit() {
+    const savedPeople = JSON.parse(localStorage.getItem("person"));
     this.workouts = savedPeople;
-
+    this.generateWorkout();
   }
 
-  
-  async loadTestFromFile(){
-    const people = await this.http.get("assets/people.json").toPromise();
-    return people.json();
-  }
 
-  generateWorkout(){
+  generateWorkout() {
     for (let i = 0; i < this.workouts.length; i++) {
       let workout = this.workouts[i];
-      workout.benchWorkout = workout.bench * .8;
-      workout.squatWorkout = workout.squat * .7;
-      workout.deadliftWorkout = workout.deadlift * 7;
+      workout.benchWorkout = workout.maxBench * .8;
+      workout.squatWorkout = workout.maxSquat * .7;
+      workout.deadliftWorkout = workout.maxDeadlift * .7;
+      workout.benchWorkout.toFixed()
+      workout.deadliftWorkout.toFixed();
+      workout.squatWorkout.toFixed();
     }
-
+    return this.workouts
   }
-
 }

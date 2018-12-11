@@ -34,3 +34,8 @@ div.example-element-diagram {
 button {
   margin-right: 8px !important;
 }
+
+.mat-toolbar.mat-primary {
+  background: #6f748e;
+  color: #fff;
+}

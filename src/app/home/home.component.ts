@@ -12,28 +12,13 @@ import {
 
 export interface IPerson {
   firstName:    string;
+  lastName:    string;
   weight:       number;
   maxBench:     number;
   maxSquat:     number;
   maxDeadlift:  number;
 }
-export interface IWorkout {
-  name: string;
-  weight: number;
-  bench: number;
-  squat: number;
-  deadlift: number;
-  description: string;
-  benchWorkout?: number;
-  squatWorkout?: number;
-  deadliftWorkout?: number;
-}
 
-let WORKOUT_DATA: IWorkout[] = [
-  { name: "Alex", weight: 165, bench: 100, squat: 150, deadlift: 150, description: "hello"},
-  { name: "Anthony", weight: 155, bench: 100, squat: 150, deadlift: 150, description: "hello"},
-  { name: "Jason", weight: 140, bench: 100, squat: 150, deadlift: 150, description: "hello"}
-];
 
 @Component({
   selector: 'app-home',
@@ -56,10 +41,6 @@ let WORKOUT_DATA: IWorkout[] = [
 export class HomeComponent implements OnInit {
 
   people: Array<IPerson> = [];
-  
-  workouts = WORKOUT_DATA;
-  workoutsToDisplay = ['name', 'weight', 'bench', 'squat', 'deadlift'];
-  expandedWorkout: IWorkout | null;
 
   constructor(
     private http: Http,
@@ -71,6 +52,7 @@ export class HomeComponent implements OnInit {
     const savedPeople = JSON.parse(localStorage.getItem("people"));
 
       this.people = await this.loadTestFromFile();
+      
   }
 
   async loadTestFromFile(){
@@ -86,6 +68,7 @@ export class HomeComponent implements OnInit {
   addPerson() {
     const newPerson: IPerson = {
       firstName: null,
+      lastName: null,
       weight:    null,
       maxBench:  null,
       maxDeadlift: null,
@@ -109,7 +92,7 @@ export class HomeComponent implements OnInit {
 
     this.saveToLocalStorage("person",this.people)
     this.router.navigate([
-      path, {      }
+      path, {}
     ]);
   }
 

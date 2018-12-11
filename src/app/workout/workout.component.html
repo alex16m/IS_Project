@@ -26,18 +26,16 @@
         [@detailExpand]="element == expandedWorkout ? 'expanded' : 'collapsed'"
       >
         <div class="example-element-diagram">
-          <div class="example-element-position">{{ element.name }}</div>
-          <div class="example-element-symbol">{{ element.weight }}</div>
-          <div class="example-element-name">{{ element.maxBench }}</div>
-          <div class="example-element-weight">{{ element.maxSquat }}</div>
+          <div class="example-element-position">{{ element.firstName }}</div>
+          <div class="example-element-symbol">{{ element.lastName }}</div>
         </div>
         <div class="example-element-description">
-          <strong (click)="generateWorkout()">Bench 3 x 10: </strong>
+          <strong >Bench 3 x 10: </strong>
           <span>{{ element.benchWorkout }}</span> <br />
           <strong>Squat 3 x 10: </strong>
           <span>{{ element.squatWorkout }}</span> <br />
           <strong>Deadlift 3 x 10: </strong>
-          <span>{{ element.squatWorkout }}</span> <br />
+          <span>{{ element.deadliftWorkout }}</span> <br />
         </div>
       </div>
     </td>
