@@ -1,30 +1,89 @@
 <div>
   <form class="input-form">
-    <mat-form-field class="input-full-width">
-      <input [(ngModel)]='name' aria-label="Name" matInput placeholder="Name" />
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-      <input [(ngModel)]='weight' matInput placeholder="Weight (lbs)" />
-    </mat-form-field>
+    <div class="regularClass" *ngFor="let person of people; let i = index">
+      <mat-form-field class="input-full-width">
+        <input
+          [(ngModel)]="person.firstName"
+          aria-label="Name"
+          matInput
+          placeholder="First Name"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <input
+          [(ngModel)]="person.lastName"
+          aria-label="Last Name"
+          matInput
+          placeholder="Last Name"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <input
+          [(ngModel)]="person.weight"
+          matInput
+          placeholder="Weight (lbs)"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
 
-    <table class="input-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="input-full-width">
-            <input [(ngModel)]='maxBench' matInput placeholder="Max Bench (lbs)" />
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="input-full-width">
-            <input [(ngModel)]='maxSquat' matInput placeholder="Max Squat (lbs)" />
-          </mat-form-field>
-        </td>
-      </tr>
-      <tr>
-        <button mat-raised-button color="primary" (click)="goToPage('workout')">
-          Generate Workout
-        </button>
-      </tr>
-    </table>
+      <table class="input-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="input-full-width">
+              <input
+                [(ngModel)]="person.maxBench"
+                matInput
+                placeholder="Max Bench (lbs)"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="input-full-width">
+              <input
+                [(ngModel)]="person.maxSquat"
+                matInput
+                placeholder="Max Squat (lbs)"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="input-full-width">
+              <input
+                [(ngModel)]="person.maxDeadlift"
+                matInput
+                placeholder="Max Deadlift (lbs)"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <button
+              (click)="saveToLocalStorage('person', this.people)"
+              mat-mini-fab
+              color="basic"
+            >
+              <mat-icon>save_alt</mat-icon>
+            </button>
+          </td>
+          <td>
+            <button (click)="delete(i)" mat-mini-fab color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <tr>
+      <button mat-raised-button color="basic" (click)="addPerson()">
+        Add Person
+      </button>
+      <button mat-raised-button color="primary" (click)="goToPage('workout')">
+        Generate Workout
+      </button>
+    </tr>
   </form>
 </div>

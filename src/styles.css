@@ -1,33 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
-      margin: 0px;
-      padding: 0px;
-    }
-    
-    body {
-      width: 100vw;
-      height: 100vh;
-      background-color: #e6e2e2;
-    }
+  margin: 0px;
+  padding: 0px;
+}
 
-    .align-center {
-      margin: 15px;
-    }   
-    
-    .nav-button {
-      margin-right: 8px !important;
-      
-    }
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e6e2e2;
+}
 
-    .mat-form-field-appearance-legacy .mat-form-field-label {
-      color: rgba(44, 31, 162, 0.7);
-  }
-  div.example-element-diagram{
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 100% !important;
+.align-center {
+  margin: 15px;
+}
+
+.nav-button {
+  margin-right: 8px !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(44, 31, 162, 0.7);
+}
+div.example-element-diagram {
+  min-width: 80px;
+  border: 2px black dotted;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 100% !important;
+}
+
+button {
+  margin-right: 8px !important;
+}
+
+.mat-toolbar.mat-primary {
+  background: #6f748e;
+  color: #fff;
 }

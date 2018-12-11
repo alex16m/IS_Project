@@ -1,7 +1,14 @@
+  
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+  
   .main-header {
       /* background-color: #9d9b9b; */
       display: grid;
       grid-template-columns: 1fr 6fr 2fr;
       height: 100%;
     }
+
+  h3 {
+    font-family: 'Oswald', sans-serif;
+  }
 
