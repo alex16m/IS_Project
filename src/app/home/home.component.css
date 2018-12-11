@@ -1,5 +1,5 @@
 .regularClass {
-    border: 1px black solid;
+    border: 2px black dotted;
 }
 
 .mat-table {
@@ -30,7 +30,7 @@
   
   .example-element-diagram {
     min-width: 80px;
-    border: 2px solid black;
+    border: 2px dotted black;
     padding: 8px;
     font-weight: lighter;
     margin: 8px 0;

@@ -32,6 +32,7 @@ export interface IPerson {
   benchWorkout?: number;
   squatWorkout?: number;
   deadliftWorkout?: number;
+  abWorkout?: number;
 }
 
 let WORKOUT_DATA: IPerson[] = [];
@@ -87,6 +88,7 @@ export class WorkoutComponent implements OnInit {
       workout.benchWorkout = workout.maxBench * .8;
       workout.squatWorkout = workout.maxSquat * .7;
       workout.deadliftWorkout = workout.maxDeadlift * .7;
+      workout.abWorkout = Math.floor(Math.random() * (workout.weight + 1));
       workout.benchWorkout.toFixed()
       workout.deadliftWorkout.toFixed();
       workout.squatWorkout.toFixed();
