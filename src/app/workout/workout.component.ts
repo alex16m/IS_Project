@@ -22,6 +22,14 @@ interface IWorkout {
   deadliftWorkout?: number;
 }
 
+export interface IPerson {
+  firstName:    string;
+  weight:       number;
+  maxBench:     number;
+  maxSquat:     number;
+  maxDeadlift:  number;
+}
+
 let WORKOUT_DATA: IWorkout[] = [
   { name: "Alex", weight: 165, bench: 100, squat: 150, deadlift: 150, description: "hello"},
   { name: "Anthony", weight: 155, bench: 100, squat: 150, deadlift: 150, description: "hello"},
@@ -49,10 +57,11 @@ let WORKOUT_DATA: IWorkout[] = [
 })
 export class WorkoutComponent implements OnInit {
 
+  people: Array<IPerson> = [];
   //workouts: Array<IWorkout>;
   workouts = WORKOUT_DATA;
-  workoutsToDisplay = ['name', 'weight', 'bench', 'squat', 'deadlift'];
-  expandedWorkout: IWorkout | null;
+  workoutsToDisplay = ['firstName', 'weight', 'bench', 'squat', 'deadlift'];
+  expandedWorkout: IPerson | null;
   data: object = {};
 
 
@@ -81,12 +90,24 @@ export class WorkoutComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const savedPeople = JSON.parse(localStorage.getItem("people"));
+      this.people = await this.loadTestFromFile();
+
+      console.log(this.people)
+
     this.activatedRoute.params.subscribe((data) => {
       this.data = data;
-      console.log(data);
     })
 
+    this.workouts = savedPeople;
+
+  }
+
+  
+  async loadTestFromFile(){
+    const people = await this.http.get("assets/people.json").toPromise();
+    return people.json();
   }
 
   generateWorkout(){

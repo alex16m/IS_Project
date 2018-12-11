@@ -1,16 +1,22 @@
 <div>
   <form class="input-form">
-    <div *ngFor="let person of people; let i = index">
+    <div class="regularClass" *ngFor="let person of people; let i = index">
       <mat-form-field class="input-full-width">
         <input
-          [(ngModel)]="person.name"
+          [(ngModel)]="person.firstName"
           aria-label="Name"
           matInput
           placeholder="First Name"
+          [ngModelOptions]="{ standalone: true }"
         />
       </mat-form-field>
       <mat-form-field class="input-full-width">
-        <input [(ngModel)]="person.name" matInput placeholder="Weight (lbs)" />
+        <input
+          [(ngModel)]="person.weight"
+          matInput
+          placeholder="Weight (lbs)"
+          [ngModelOptions]="{ standalone: true }"
+        />
       </mat-form-field>
 
       <table class="input-full-width" cellspacing="0">
@@ -18,20 +24,36 @@
           <td>
             <mat-form-field class="input-full-width">
               <input
-                [(ngModel)]="person.name"
+                [(ngModel)]="person.maxBench"
                 matInput
                 placeholder="Max Bench (lbs)"
+                [ngModelOptions]="{ standalone: true }"
               />
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="input-full-width">
               <input
-                [(ngModel)]="person.name"
+                [(ngModel)]="person.maxSquat"
                 matInput
                 placeholder="Max Squat (lbs)"
+                [ngModelOptions]="{ standalone: true }"
               />
             </mat-form-field>
+          </td>
+          <td>
+            <button
+              (click)="saveToLocalStorage('person', this.people)"
+              mat-mini-fab
+              color="basic"
+            >
+              <mat-icon>save_alt</mat-icon>
+            </button>
+          </td>
+          <td>
+            <button (click)="delete(i)" mat-mini-fab color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </tr>
       </table>
@@ -45,4 +67,67 @@
       </button>
     </tr>
   </form>
+</div>
+<div class="workoutTable">
+  <table
+    mat-table
+    [dataSource]="workouts"
+    multiTemplateDataRows
+    class="mat-elevation-z8"
+  >
+    <ng-container
+      matColumnDef="{{workout}}"
+      *ngFor="let workout of workoutsToDisplay"
+    >
+      <th mat-header-cell *matHeaderCellDef>{{ workout }}</th>
+      <td mat-cell *matCellDef="let element">{{ element[workout] }}</td>
+    </ng-container>
+
+    <!--
+      Expanded Content Column - The detail row is made up of this one column that spans across all columns
+    -->
+    <ng-container matColumnDef="expandedDetail">
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [attr.colspan]="workoutsToDisplay.length"
+      >
+        <div
+          class="example-element-detail"
+          [@detailExpand]="
+            element == expandedWorkout ? 'expanded' : 'collapsed'
+          "
+        >
+          <div class="example-element-diagram">
+            <div class="example-element-position">{{ element.name }}</div>
+            <div class="example-element-symbol">{{ element.weight }}</div>
+            <div class="example-element-name">{{ element.maxBench }}</div>
+            <div class="example-element-weight">{{ element.maxSquat }}</div>
+          </div>
+          <div class="example-element-description">
+            <strong (click)="generateWorkout()">Bench 3 x 10: </strong>
+            <span>{{ element.benchWorkout }}</span> <br />
+            <strong>Squat 3 x 10: </strong>
+            <span>{{ element.squatWorkout }}</span> <br />
+            <strong>Deadlift 3 x 10: </strong>
+            <span>{{ element.squatWorkout }}</span> <br />
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="workoutsToDisplay"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: workoutsToDisplay"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedWorkout === element"
+      (click)="expandedWorkout = expandedWorkout === element ? null : element"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['expandedDetail']"
+      class="example-detail-row"
+    ></tr>
+  </table>
 </div>

@@ -1,0 +1,23 @@
+[
+  {
+    "firstName":    "Alex",
+    "weight":       155,
+    "maxBench":     160,
+    "maxSquat":     200,
+    "maxDeadlift":  215
+  },
+  {
+    "firstName":    "Anthony",
+    "weight":       150,
+    "maxBench":     145,
+    "maxSquat":     315,
+    "maxDeadlift":  330
+  },
+  {
+    "firstName":    "Carlos",
+    "weight":       160,
+    "maxBench":     200,
+    "maxSquat":     345,
+    "maxDeadlift":  350
+  }
+]
